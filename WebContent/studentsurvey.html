@@ -1,0 +1,210 @@
+<!-- This assignment is done by Mrudula Ichanahalli Anantharamaiah G01062001 -->
+<!-- This the Student Survey Form -->
+<!DOCTYPE html>
+<html>
+<style>
+label {
+	font-size: 20px;
+	font-family: Arial;
+	padding: 14px 20px;
+	margin: 3px 0;
+	width: 300px;
+}
+
+.label-wrapper {
+	display: inline-block;
+	width: 185px;
+}
+
+.submit-class button:hover {
+	background-color: #A9A9A9;
+}
+
+.submit-class {
+	text-align: center;
+}
+
+.submit-class button {
+	width: 100px;
+	height: 40px;
+	font-size: 20px;
+	font-family: Arial;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+input[type=text] {
+	width: 50%;
+	border: 2px solid #ccc;
+	display: inline-block;
+	border-radius: 5px;
+	box-shadow: 5px 5px 10px dimgrey;
+	padding: 20px 25px;
+	margin-left: 6px;
+}
+
+#main {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+}
+
+.cit {
+	width: 20%;
+	display: inline-block;
+}
+
+.checkbox-wrapper {
+	display: inline-block;
+	width: 500px;
+}
+
+.radio-wrapper {
+	display: inline-block;
+	width: 500px;
+}
+
+.drop-wrapper {
+	display: inline-block;
+	width: 100%;
+}
+
+.checkboxes {
+	font-size: 20px;
+	font-family: Arial;
+	padding: 14px 20px;
+	margin: 6px 0;
+	width: 300px;
+}
+
+.drop-down-buttons {
+	padding: 14px 20px;
+	margin: 6px 0;
+	width: 20%;
+}
+
+.drop-down-font {
+	font-size: 20px;
+	font-family: Arial;
+}
+
+.radiobuttons {
+	font-size: 20px;
+	font-family: Arial;
+	padding: 14px 20px;
+	margin: 6px 0;
+	width: 300px;
+}
+</style>
+<link rel="stylesheet" href="jquery-ui.css">
+<script src="jquery.js"></script>
+<script src="jquery-ui.js"></script>
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Survey</title>
+</head>
+<body>
+	<h1>Student Survey Page</h1>
+	<p id="demo"></p>
+
+	<!--This is the outermost div element-->
+	<div id="main">
+		<div autocomplete="on">
+
+
+
+
+			<!-- The following fields are required fields -->
+			<div>
+				<div class="label-wrapper">
+					<label>Name : </label>
+				</div>
+				<input type="text" id="fname" name="firstname"
+					placeholder="Please enter your first name.." required autofocus /><br>
+			</div>
+			<br> <br>
+
+			<div>
+				<div class="label-wrapper">
+					<label>Street Address :</label>
+				</div>
+				<input type="text" id="saddr" name="streetaddress"
+					placeholder="Please enter your street address.." required /><br>
+
+			</div>
+
+			<div>
+
+				<br> <br>
+				<div>
+					<div class="label-wrapper">
+						<label>Tel No :</label>
+					</div>
+					<!--This field will take only numbers and some special characters, Throws alert message if the phone number in not a number-->
+					<div class="cit">
+						<input type="text" name="telephonenumber" id="telid"
+							placeholder="For ex:  0000000000" required />
+					</div>
+					<div id="telephonevalidation"
+						style="visibility: hidden; color: red; margin-left: 210px">Please
+						give only Numbers</div>
+					<br>
+					<div class="label-wrapper">
+						<label>EMail ID :</label>
+					</div>
+					<!--This field will take only the values in the format specified, like, yourId@example.com, if not given in this format throws alert message-->
+					<div class="cit">
+						<input type="text" name="emailid" id="email"
+							placeholder="For ex: yourId@example.com" required />
+					</div>
+					<br>
+					<div id="emailvalidation"
+						style="visibility: hidden; color: red; margin-left: 210px">Please
+						give valid email ID</div>
+					<br>
+
+
+				</div>
+			</div>
+			<br> <br>
+
+
+
+
+
+			<div class="drop-wrapper">
+				<label>Comments </label> <br>
+				<div class="cit">
+					<input style="margin: 20px; padding: 65px 100px;" type="text"
+						name="raffel" />
+				</div>
+
+
+
+
+			</div>
+			<br>
+
+			<div class="submit-class">
+				<button onclick="validateformsubmit()">Submit</button>
+				<!-- <button name="Cancel" onclick="window.location.reload(false);">Reset</button> -->
+			</div>
+
+
+
+
+			<img id="logo2" src="3428.jpg" alt="Smiley face"
+				style="position: fixed; bottom: 10px; right: 20px;"
+				title="Please visit https://www2.gmu.edu for further information" />
+
+
+
+		</div>
+	</div>
+
+	<script src="./app/scripts/app.js"></script>
+
+
+</body>
+</html>
