@@ -16,10 +16,10 @@ public class DatabaseMapper {
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/testdb?useSSL=false", "root",
+			Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/TESTDB?useSSL=false", "root",
 					"77@Jaiganpathi");
 			// Statement myStat=myConn.createStatement();
-			String myRs = "INSERT INTO testdb.student (StudentName,StudentAddress,StudentEmail,StudentTelephone,Comments)"
+			String myRs = "INSERT INTO TESTDB.student (StudentName,StudentAddress,StudentEmail,StudentTelephone,Comments)"
 					+ "VALUES (?,?,?,?,?)";
 
 			PreparedStatement preparedStmt = myConn.prepareStatement(myRs);
@@ -49,10 +49,10 @@ public class DatabaseMapper {
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/testdb?useSSL=false", "root",
+			Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/TESTDB?useSSL=false", "root",
 					"77@Jaiganpathi");
 			Statement myStat = myConn.createStatement();
-			ResultSet myRs = myStat.executeQuery("SELECT * FROM testdb.student");
+			ResultSet myRs = myStat.executeQuery("SELECT * FROM TESTDB.student");
 
 			while (myRs.next()) {
 				student = new Student();
