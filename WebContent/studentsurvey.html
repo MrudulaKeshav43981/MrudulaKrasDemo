@@ -96,6 +96,7 @@ input[type=text] {
 	width: 300px;
 }
 </style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 <link rel="stylesheet" href="jquery-ui.css">
 <script src="jquery.js"></script>
 <script src="jquery-ui.js"></script>
@@ -176,8 +177,7 @@ input[type=text] {
 			<div class="drop-wrapper">
 				<label>Comments </label> <br>
 				<div class="cit">
-					<input style="margin: 20px; padding: 65px 100px;" type="text"
-						name="raffel" />
+					<input style="margin: 20px; padding: 65px 100px;" type="text" id="comments" />
 				</div>
 
 
@@ -187,8 +187,9 @@ input[type=text] {
 			<br>
 
 			<div class="submit-class">
-				<button onclick="validateformsubmit()">Submit</button>
-				<!-- <button name="Cancel" onclick="window.location.reload(false);">Reset</button> -->
+				<button onclick="savestudentdata()">Submit</button>
+				<button onclick="window.location.reload(false);">Reset</button>
+				<button onclick="fetchstudentsdata()">Fetch</button>
 			</div>
 
 

@@ -11,12 +11,13 @@ public class Student {
 	@XmlElement(required=true) 
 	private String streetAddress;
 	
-	@XmlElement(required=true) 
+	@XmlElement
 	private String telphoneNumber;
 
-	@XmlElement(required=true) 
+	@XmlElement 
 	private String email;
 	
+	@XmlElement
 	private String comments;
 	
 	public String getStreetAddress() {

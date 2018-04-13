@@ -1,36 +1,37 @@
 package com.krasnow;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 
+import dbobjects.DatabaseMapper;
 import pojos.Student;
+
 
 
 @Path("/studentSurveyService")
 public class StudentSurveyService {
 	
-	private static Map<Integer, String> zipAndStateMap = new HashMap<Integer, String>();
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/save")
-	public String getName(Student studentData)
+	public String saveStudent(Student studentData)
 	{
+		DatabaseMapper mapper=new DatabaseMapper();
 		try
 	    {
-	        System.out.println("Name  "+studentData.getFirstName());
-	        System.out.println("Address  "+studentData.getStreetAddress());
+	       
+	        mapper.saveStudents(studentData);
 
 	    } catch (Exception e)
 	    {
@@ -42,27 +43,40 @@ public class StudentSurveyService {
 	}
 	
 	@GET
-	@Produces(MediaType.TEXT_PLAIN)
-	@Path("{zip}")
-	public String getName(@Context HttpHeaders header, @PathParam("zip") String zipCode)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/get")
+	public List<Student> getStudents()
 	{
-		Integer zip = Integer.parseInt(zipCode);
-		return StateAndCity(zip);
-	}
-	
-	private String StateAndCity(int zipCode){
-		if(zipAndStateMap.isEmpty()){
-			zipAndStateMap.put(22312, "Alexandria,VA");
-			zipAndStateMap.put(22030, "Fairfax,VA");
-			zipAndStateMap.put(22301, "Tysons Corner,VA");
-			zipAndStateMap.put(20148, "Ashburn,VA");
+		
+		 Map<String, String> studentMap = new HashMap<String, String>();
+		DatabaseMapper mapper=new DatabaseMapper();
+		List<Student> students=new ArrayList<Student>();
+		try {
+		
+		students=mapper.getStudents();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		}
 		
-		if(zipAndStateMap.containsKey(zipCode))
-			return zipAndStateMap.get(zipCode);
+		catch(Exception e)
+		{
+			// TODO Auto-generated catch block
+	        e.printStackTrace();
+			
+		}
 		
-		return "Please enter a valid Zip code.";
+		return students;
 	}
+	
+	
 	
 	
 	
