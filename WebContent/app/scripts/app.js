@@ -41,6 +41,25 @@ function savestudentdata() {
 	var vfname = document.getElementById('fname').value;
 	var vtelnumber = document.getElementById('telid').value;
 	var vcomments = document.getElementById('comments').value;
+
+	var stringbuild = "";
+
+	if (!validateName(vfname)) {
+
+		stringbuild += "First Name text box should contain only Alphabets \n"
+	}
+
+	if (!validateEmail(vemail)) {
+		stringbuild += "Email ID should be in proper format Example: example@abc.com \n"
+	}
+	if (!validateAddress(vaddress)) {
+		stringbuild += "The Address text boxes should contain only appropriate numeric, alphabet or alphanumeric characters\n"
+	}
+
+	if (!stringbuild == "") {
+		alert(stringbuild);
+	}
+
 	var studentInfo = {
 		"firstName" : vfname,
 		"email" : vemail,
@@ -60,24 +79,9 @@ function savestudentdata() {
 		'data' : postData,
 		'dataType' : 'json',
 		'success' : function(data) {
-			console.log("SUCCESS");
+			alert("SUCCESS");
 		}
 	});
-	/*
-	 * var stringbuild = "";
-	 * 
-	 * if (!validateName(vfname)) {
-	 * 
-	 * stringbuild += "First Name text box should contain only Alphabets \n" }
-	 * 
-	 * if (!validateEmail(vemail)) { stringbuild += "Email ID should be in
-	 * proper format Example: example@abc.com \n" } if
-	 * (!validateAddress(vaddress)) { stringbuild += "The Address text boxes
-	 * should contain only appropriate numeric, alphabet or alphanumeric
-	 * characters\n" }
-	 * 
-	 * if (!stringbuild == "") { alert(stringbuild); }
-	 */
 
 }
 var collectdata;
